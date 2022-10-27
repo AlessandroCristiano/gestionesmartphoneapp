@@ -115,8 +115,7 @@ public class MyTest {
 		Date dataPrimaDiAggiornare=appInstance.getDataUltimoAggiornamento();
 		
 		appInstance.setVersione("3.2.1");
-		Date dataNuovoAggiornamento = new SimpleDateFormat("dd-MM-yyyy").parse("07-10-2022");
-		appInstance.setDataUltimoAggiornamento(dataNuovoAggiornamento);
+		appInstance.setDataUltimoAggiornamento(new Date());
 		
 		appServiceInstance.aggiorna(appInstance);
 		if(appInstance.getVersione().equals(versionePrecedente) && appInstance.getDataUltimoAggiornamento().equals(dataPrimaDiAggiornare))
