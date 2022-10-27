@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import it.prova.gestionesmartphoneapp.model.App;
 import it.prova.gestionesmartphoneapp.model.Smartphone;
 
 public class SmartphoneDAOImpl implements SmartphoneDAO{
@@ -61,4 +60,8 @@ public class SmartphoneDAOImpl implements SmartphoneDAO{
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
+	@Override
+	public void deleteSmartphoneFromThirdTable(Long id) throws Exception {
+		entityManager.createNativeQuery("delete from smartphone_app where smartphone_id = ?1").setParameter(1, id).executeUpdate();	
+	}
 }

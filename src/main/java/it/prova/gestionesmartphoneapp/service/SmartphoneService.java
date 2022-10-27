@@ -20,6 +20,7 @@ public interface SmartphoneService {
 	
 	public void aggiungiApp(Smartphone smartphoneInstance, App appInstance)throws Exception;
 	public Smartphone caricaSingoloElementoEagerApps(Long id) throws Exception;
+	public void rimuoviSmartphoneTerzatabella(Long id)throws Exception;
 	
 	// per injection
 	public void setSmartphoneDAO(SmartphoneDAO smartphoneDAO);

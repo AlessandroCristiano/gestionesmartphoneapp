@@ -19,6 +19,8 @@ public interface AppService {
 	
 	public void rimuoviAppDallaTerzaTabella(Long idApp) throws Exception;
 	
+	public App caricaSingoloElementoEagerSmartphones(Long id) throws Exception;
+	
 	// per injection
 		public void setAppDAO(AppDAO appDAO);
 

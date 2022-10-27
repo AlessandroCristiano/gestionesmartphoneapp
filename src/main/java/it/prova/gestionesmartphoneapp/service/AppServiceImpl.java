@@ -156,7 +156,26 @@ public class AppServiceImpl implements AppService{
 			throw e;
 		} finally {
 			EntityManagerUtil.closeEntityManager(entityManager);
+		}	
+	}
+
+	@Override
+	public App caricaSingoloElementoEagerSmartphones(Long id) throws Exception {
+		// questo è come una connection
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			// uso l'injection per il dao
+			appDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			return appDAO.findByIdFetchingSmartphones(id);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
 		}
-		
 	}
 }
